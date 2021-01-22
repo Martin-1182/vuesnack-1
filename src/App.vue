@@ -1,6 +1,13 @@
 <template>
     <snack />
-    <a href="#" @click.prevent="doSomething">Trigger Snack</a>
+    <div class="ml-2 flex">
+        <a
+            class="bg-blue-900 text-white px-8 py-2 rounded-lg text-xl mt-6"
+            href="#"
+            @click.prevent="doSomething"
+            >Trigger Snack</a
+        >
+    </div>
 </template>
 <script>
 import { mapActions } from 'vuex'
