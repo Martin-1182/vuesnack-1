@@ -1,30 +1,26 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view />
+    <snack />
+    <a href="#" @click.prevent="doSomething">Trigger Snack</a>
 </template>
+<script>
+import { mapActions } from 'vuex'
+import Snack from '@/components/Snack'
+export default {
+    name: 'App',
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+    components: {
+        Snack
+    },
+    methods: {
+        ...mapActions({
+            snack: 'snack/snack'
+        }),
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+        doSomething() {
+            this.snack('This is a snack!')
+        }
     }
-  }
 }
-</style>
+</script>
+
+<style src="./assets/styles/app.css"></style>
